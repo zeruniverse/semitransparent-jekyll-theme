@@ -7,6 +7,10 @@ semitransparent-jekyll-theme
 
 本项目的GitHub [Pages](https://zeruniverse.github.io/semitransparent-jekyll-theme/)
 
+## Screenshot
+
+![capture](https://cloud.githubusercontent.com/assets/4648756/22578375/2f09c1fc-e97d-11e6-8910-336cf6c4f7ed.PNG)
+
 ## Features
 
 + 半透明风格
