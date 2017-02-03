@@ -1,0 +1,121 @@
+---
+layout: default
+title: 主页
+---
+<div class="row">
+<div class="col-md-9 col-sm-12">
+{% for post in paginator.posts %}
+<div class="page-content">
+    <div class="post-heading">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </div>
+    <div class="post-meta">
+        <span>
+            发布时间:
+            <a href="{{ post.url }}">{{ post.date | date:"%Y年%m月%d日" }}</a>
+        </span>
+        <span><i class="fa fa-ellipsis-v"></i></span>
+        <span>
+            分类:
+            {% for cat in post.categories %}
+            <a href="/categories.html#{{ cat }}-ref">{{ cat }}</a>
+            {% endfor %}
+        </span>
+    </div>
+	{% if post.hgimg %}
+		{% if post.fullhgimg %}
+			<div><a href="/postimg/{{ post.fullhgimg }}"><img class="hgimg" title="点击查看大图" src="/postimg/{{ post.hgimg }}" width="100%" /></a></div>
+		{% else %}
+			<div><img src="/postimg/{{ post.hgimg }}" class="hgimg" width="100%" /></div>
+		{% endif %}
+	{% endif %}
+    <div class="post-entry">
+	{% if post.content contains site.excerpt_separator %}
+		{{  post.excerpt | rstrip | append: '.@marklastp@.' | remove: '</p>.@marklastp@.' }}...<a href="{{ post.url }}">>>阅读全文</a></p>
+	{% else %}
+        {{ post.content }}
+	{% endif %}
+    </div>
+</div>
+{% endfor %}
+
+<div class="page-pagination">
+    <ul class="pagination">
+    <li class="hidden-sm hidden-xs"><span>页面导航:</span></li>
+    {% assign page_begin = paginator.page | minus: 2 %}
+    {% assign page_end = paginator.page | plus: 2 %}
+    {% if page_begin < 1 %}
+            {% assign page_begin = 1 %}
+    {% endif %}
+    {% if page_end > paginator.total_pages %}
+            {% assign page_end = paginator.total_pages %}
+    {% endif %}
+        <li><a href="/">首页</a></li>
+    {% if 3 < paginator.page %}
+         <li class="hidden-xs"><a class="disabled">...</a></li>
+    {% endif %}
+    {% for count in (page_begin..page_end) %}
+    {% if 1 == count %} 
+        {% if paginator.page == 1 %}
+        <li><a class="active disabled">1</a></li>
+        {% else %}
+        <li><a href="/">1</a></li>
+        {% endif %}
+    {% else %}
+    {% if count == paginator.page %}
+        <li><a class="active disabled">{{count}}</a></li>
+    {% else %}
+        <li><a href="/page{{count}}">{{count}}</a></li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% if page_end < paginator.total_pages %}
+        <li class="hidden-xs"><a class="disabled">...</a></li>
+    {% endif %}
+    {% if paginator.total_pages == 1 %}
+        <li><a href="/">尾页</a></li>
+    {% else %}
+        <li><a href="/page{{paginator.total_pages}}">尾页</a></li>
+    {% endif %}
+        <li class="hidden-sm hidden-xs"><span>共{{ paginator.total_posts }}篇</span></li>
+    </ul>
+</div>
+</div>
+<div class="col-md-3 col-sm-12">
+<div class="page-content" style="border-bottom:0;margin-left:15px;">
+    <div class="stext">
+        相关链接
+    </div>
+<ul class="sqlist">
+{% for nav in site.navigation %}
+	<li><a href="{{nav.url}}">{{nav.text}}</a></li>
+{% endfor %}
+</ul>
+<div class="stext">
+        分类目录
+</div>
+<ul class="sqlist">
+{% for cat in site.categories %}
+    <li>
+        <a href="/categories.html#{{ cat[0] }}-ref" title="分类:{{ cat[0] }}" >{{ cat[0] }}</a>
+    </li>
+{% endfor %}
+</ul>
+
+<div class="stext">
+        文章归档
+</div>
+<ul class="sqlist">
+{% for post in site.posts %}
+{% capture post_year2 %}{{ post.date | date: '%Y' }}{% endcapture %}
+{% if post_year1 != post_year2 %}
+{% assign post_year1 = post_year2 %}
+<li>
+        <a href="/archive.html#yid{{ post_year1 }}">{{ post_year1 }}年</a>
+</li>
+{% endif %}
+{% endfor %}
+</ul>
+</div>
+</div>
+</div>

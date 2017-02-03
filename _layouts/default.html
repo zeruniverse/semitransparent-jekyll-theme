@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/favicon.ico" rel="shortcut icon">
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml" />
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/static/css/font-awesome.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/static/css/application.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/static/js/jquery.js" type="text/javascript"></script>
+    <!--[if lt IE 9]><script src="/static/js/html5shiv.js" type="text/javascript"></script><![endif]-->
+</head>
+<body>
+    <div id="bbg"></div>
+     <div class="page-container">
+     <div class="page-heading">
+         <div class="page-brand">
+             <h1><a href="/">{{ site.title }}</a></h1>
+             <h2>{{ site.description }}</h2>
+         </div>
+		 <a href="/" title="{{ site.title }}"><img title="{{ site.title }}" id="hgimg" src="" width="100%"></a>
+		 <script>
+			var imgid=Math.floor((Math.random() * {{ site.hgimgcount }}) + 1);
+			$("#hgimg").attr('src','/static/hgimg/'+imgid+'.jpg');
+		 </script>
+         <div class="page-navbar">
+             <div class="page-navbar-container">
+                 <ul class="page-nav">
+                     <li><a href="/">博客</a></li>
+					 <li><a href="/about.html">关于</a></li>                    
+                 </ul>
+             </div>
+         </div>
+     </div>
+     <div class="page-article">
+         {{ content }}
+     </div>
+     <div class="page-footer">
+         <span>
+             &copy;{{site.time | date:"%Y-%m-%d"}} Jeffery 由Jekyll驱动
+         </span>
+     </div>
+     </div>
+     <script src="/static/js/bootstrap.js" type="text/javascript"></script>
+     <script src="/static/js/snowflakes.js" type="text/javascript"></script>
+     <script>
+      var sf = new Snowflakes({
+            container: document.getElementById('bbg'),
+            count: 60, // 50 snowflakes. Default: 30
+            delay: 15, // The property affects the speed of falling, ms. Default: 20
+        });
+    </script>
+</body>
+</html>
+
