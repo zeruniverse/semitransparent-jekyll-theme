@@ -1,4 +1,4 @@
-permalink: /:year-:month/:title/
+permalink: /:year-:month-:day/:title/
 title: SemiTransparent 主题
 email: zzy8200@gmail.com
 description: 同款WordPress主题的Jekyll实现
