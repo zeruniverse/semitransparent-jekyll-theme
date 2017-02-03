@@ -1,6 +1,9 @@
+---
+---
+
 body {
   font-family: "PT Serif", Georgia, "Microsoft YaHei", Arial, sans-serif;
-  background: url("/static/img/bg.png") repeat fixed;
+  background: url("{{ site.url }}/static/img/bg.png") repeat fixed;
   background-attachment:fixed;
 }
 li.L4 {
@@ -28,7 +31,7 @@ h3 {
 .page-container {
   max-width: 1000px;
   margin: 2em auto;
-  background: url("/static/img/25.png") repeat fixed;
+  background: url("{{ site.url }}/static/img/25.png") repeat fixed;
 }
 .hgimg{
 	vertical-align: middle;
@@ -168,7 +171,7 @@ hr{
   margin-bottom: 35px;
 }
 .page-footer {
-  background: url("/static/img/50.png") repeat fixed;
+  background: url("{{ site.url }}/static/img/50.png") repeat fixed;
   color: #555;
   font-weight: 500;
   font-size: 13px;
@@ -331,7 +334,7 @@ hr{
   }
   body {
     margin: 0 auto;
-	background: url("/static/img/800pxbg.jpg") repeat fixed;
+	background: url("{{ site.url }}/static/img/800pxbg.jpg") repeat fixed;
   }
   #bbg{
 	display:none;
