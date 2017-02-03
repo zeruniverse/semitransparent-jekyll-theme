@@ -14,7 +14,7 @@ navigation:
   - text: GitHub
     url: https://github.com/zeruniverse/semitransparent-jekyll-theme
   - text: 作者
-    url: http://zzeyu.com/
+    url: https://github.com/zeruniverse
 
 # Build settings
 markdown: kramdown
