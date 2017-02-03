@@ -23,7 +23,7 @@ permalink: /categories.html
             {% for post in cat[1] %}
             <li>
                 <span>{{ post.date | date:"%Y年%m月%d日" }} </span>
-                <a href="{{ post.url }}">{{post.title}} </a>
+                <a href="{{ site.url }}{{ post.url }}">{{post.title}} </a>
             </li>
             {% endfor %}
         </ul>

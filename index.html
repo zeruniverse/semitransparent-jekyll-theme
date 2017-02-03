@@ -7,31 +7,31 @@ title: 主页
 {% for post in paginator.posts %}
 <div class="page-content">
     <div class="post-heading">
-        <a href="{{ post.url }}">{{ post.title }}</a>
+        <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
     </div>
     <div class="post-meta">
         <span>
             发布时间:
-            <a href="{{ post.url }}">{{ post.date | date:"%Y年%m月%d日" }}</a>
+            <a href="{{ site.url }}{{ post.url }}">{{ post.date | date:"%Y年%m月%d日" }}</a>
         </span>
         <span><i class="fa fa-ellipsis-v"></i></span>
         <span>
             分类:
             {% for cat in post.categories %}
-            <a href="/categories.html#{{ cat }}-ref">{{ cat }}</a>
+            <a href="{{ site.url }}/categories.html#{{ cat }}-ref">{{ cat }}</a>
             {% endfor %}
         </span>
     </div>
 	{% if post.hgimg %}
 		{% if post.fullhgimg %}
-			<div><a href="/postimg/{{ post.fullhgimg }}"><img class="hgimg" title="点击查看大图" src="/postimg/{{ post.hgimg }}" width="100%" /></a></div>
+			<div><a href="{{ site.url }}/postimg/{{ post.fullhgimg }}"><img class="hgimg" title="点击查看大图" src="{{ site.url }}/postimg/{{ post.hgimg }}" width="100%" /></a></div>
 		{% else %}
-			<div><img src="/postimg/{{ post.hgimg }}" class="hgimg" width="100%" /></div>
+			<div><img src="{{ site.url }}/postimg/{{ post.hgimg }}" class="hgimg" width="100%" /></div>
 		{% endif %}
 	{% endif %}
     <div class="post-entry">
 	{% if post.content contains site.excerpt_separator %}
-		{{  post.excerpt | rstrip | append: '.@marklastp@.' | remove: '</p>.@marklastp@.' }}...<a href="{{ post.url }}">>>阅读全文</a></p>
+		{{  post.excerpt | rstrip | append: '.@marklastp@.' | remove: '</p>.@marklastp@.' }}...<a href="{{ site.url }}{{ post.url }}">>>阅读全文</a></p>
 	{% else %}
         {{ post.content }}
 	{% endif %}
@@ -50,7 +50,7 @@ title: 主页
     {% if page_end > paginator.total_pages %}
             {% assign page_end = paginator.total_pages %}
     {% endif %}
-        <li><a href="/">首页</a></li>
+        <li><a href="{{ site.url }}/">首页</a></li>
     {% if 3 < paginator.page %}
          <li class="hidden-xs"><a class="disabled">...</a></li>
     {% endif %}
@@ -59,13 +59,13 @@ title: 主页
         {% if paginator.page == 1 %}
         <li><a class="active disabled">1</a></li>
         {% else %}
-        <li><a href="/">1</a></li>
+        <li><a href="{{ site.url }}/">1</a></li>
         {% endif %}
     {% else %}
     {% if count == paginator.page %}
         <li><a class="active disabled">{{count}}</a></li>
     {% else %}
-        <li><a href="/page{{count}}">{{count}}</a></li>
+        <li><a href="{{ site.url }}/page{{count}}">{{count}}</a></li>
     {% endif %}
     {% endif %}
     {% endfor %}
@@ -73,9 +73,9 @@ title: 主页
         <li class="hidden-xs"><a class="disabled">...</a></li>
     {% endif %}
     {% if paginator.total_pages == 1 %}
-        <li><a href="/">尾页</a></li>
+        <li><a href="{{ site.url }}/">尾页</a></li>
     {% else %}
-        <li><a href="/page{{paginator.total_pages}}">尾页</a></li>
+        <li><a href="{{ site.url }}/page{{paginator.total_pages}}">尾页</a></li>
     {% endif %}
         <li class="hidden-sm hidden-xs"><span>共{{ paginator.total_posts }}篇</span></li>
     </ul>
@@ -88,7 +88,7 @@ title: 主页
     </div>
 <ul class="sqlist">
 {% for nav in site.navigation %}
-	<li><a href="{{nav.url}}">{{nav.text}}</a></li>
+	<li><a href="{{ site.url }}{{nav.url}}">{{nav.text}}</a></li>
 {% endfor %}
 </ul>
 <div class="stext">
@@ -97,7 +97,7 @@ title: 主页
 <ul class="sqlist">
 {% for cat in site.categories %}
     <li>
-        <a href="/categories.html#{{ cat[0] }}-ref" title="分类:{{ cat[0] }}" >{{ cat[0] }}</a>
+        <a href="{{ site.url }}/categories.html#{{ cat[0] }}-ref" title="分类:{{ cat[0] }}" >{{ cat[0] }}</a>
     </li>
 {% endfor %}
 </ul>
@@ -111,7 +111,7 @@ title: 主页
 {% if post_year1 != post_year2 %}
 {% assign post_year1 = post_year2 %}
 <li>
-        <a href="/archive.html#yid{{ post_year1 }}">{{ post_year1 }}年</a>
+        <a href="{{ site.url }}/archive.html#yid{{ post_year1 }}">{{ post_year1 }}年</a>
 </li>
 {% endif %}
 {% endfor %}

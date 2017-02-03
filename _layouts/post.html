@@ -4,10 +4,10 @@ layout: default
 <div class="post-blank post-pager">
     <ul class="pager">
         {% if page.previous %}
-        <li class="previous"><a href="{{ page.previous.url }}">&larr; 上一篇</a></li>
+        <li class="previous"><a href="{{ site.url }}{{ page.previous.url }}">&larr; 上一篇</a></li>
         {% endif %}
         {% if page.next %}
-        <li class="next"><a href="{{ page.next.url }}">下一篇 &rarr;</a></li>
+        <li class="next"><a href="{{ site.url }}{{ page.next.url }}">下一篇 &rarr;</a></li>
         {% endif %}
     </ul>
 </div>
@@ -18,7 +18,7 @@ layout: default
     <div class="post-meta">
         <span>
             发布时间:
-            <a href="{{ page.url }}">{{ page.date | date:"%Y年%m月%d日" }}</a>
+            <a href="{{ site.url }}{{ page.url }}">{{ page.date | date:"%Y年%m月%d日" }}</a>
         </span>
 	{% capture difference %} {{ page.categories | size | minus:1 }} {% endcapture %}
         {% unless difference contains '-' %}
@@ -26,7 +26,7 @@ layout: default
         <span>
             分类: 
             {% for cat in page.categories %}
-            <a href="/categories.html#{{ cat }}-ref">{{ cat }}</a>
+            <a href="{{ site.url }}/categories.html#{{ cat }}-ref">{{ cat }}</a>
             {% endfor %}
         </span>
 	{% endunless %}
@@ -36,16 +36,16 @@ layout: default
         <span class="hidden-sm">
             标签:
             {% for tag in page.tags %}
-            <a href="/tags.html#{{ tag }}-ref">{{ tag }}</a>
+            <a href="{{ site.url }}/tags.html#{{ tag }}-ref">{{ tag }}</a>
             {% endfor %}
         </span>
 	{% endunless %}
     </div>
 	{% if page.hgimg %}
 		{% if page.fullhgimg %}
-			<div><a alt="点击查看大图" href="/postimg/{{ page.fullhgimg }}"><img alt="点击查看大图" src="/postimg/{{ page.hgimg }}" style="vertical-align: middle;margin-top: 15px;margin-bottom:5px;border: 5px solid;border-radius: 25px;border-color: #fff;" width="100%" /></a></div>
+			<div><a alt="点击查看大图" href="{{ site.url }}/postimg/{{ page.fullhgimg }}"><img alt="点击查看大图" src="{{ site.url }}/postimg/{{ page.hgimg }}" class="hgimg" width="100%" /></a></div>
 		{% else %}
-			<div><img src="/postimg/{{ page.hgimg }}" style="vertical-align: middle;margin-top: 15px;margin-bottom:5px;border: 5px solid;border-radius: 25px;border-color: #fff;" width="100%" /></div>
+			<div><img src="{{ site.url }}/postimg/{{ page.hgimg }}" class="hgimg" width="100%" /></div>
 		{% endif %}
 	{% endif %}
     <div class="post-entry">
