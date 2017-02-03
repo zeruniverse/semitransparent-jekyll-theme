@@ -19,7 +19,7 @@ navigation:
 # Build settings
 markdown: kramdown
 excerpt_separator: "<!--more-->"
-highlighter: rough
+highlighter: rouge
 
 gems:
   - jekyll-paginate
