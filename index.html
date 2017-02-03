@@ -106,15 +106,9 @@ title: 主页
         文章归档
 </div>
 <ul class="sqlist">
-{% for post in site.posts %}
-{% capture post_year2 %}{{ post.date | date: '%Y' }}{% endcapture %}
-{% if post_year1 != post_year2 %}
-{% assign post_year1 = post_year2 %}
-<li>
+{% for post in site.posts %}{% capture post_year2 %}{{ post.date | date: '%Y' }}{% endcapture %}{% if post_year1 != post_year2 %}{% assign post_year1 = post_year2 %}<li>
         <a href="{{ site.url }}/archive.html#yid{{ post_year1 }}">{{ post_year1 }}年</a>
-</li>
-{% endif %}
-{% endfor %}
+</li>{% endif %}{% endfor %}
 </ul>
 </div>
 </div>
