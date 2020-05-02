@@ -57,7 +57,7 @@ semitransparent-jekyll-theme
 
 + GitHub Pages 判断变量是否为空的函数有问题，Jekyll没有remove_last这个filter，因此这两个地方用了比较奇怪的实现方式。
 
-+ 同款WordPress的气泡背景加到这里会导致浏览器卡死。原因未知，因此换了雪花背景。
++ ~~同款WordPress的气泡背景加到这里会导致浏览器卡死。原因未知，因此换了雪花背景。~~ 使用了[bubbly-bg.js](https://github.com/tipsy/bubbly-bg)
 
 ## License
 

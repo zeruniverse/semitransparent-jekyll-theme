@@ -3,7 +3,6 @@
 
 body {
   font-family: "PT Serif", Georgia, "Microsoft YaHei", Arial, sans-serif;
-  background: url("{{ site.url }}/static/img/bg.png") repeat fixed;
   background-attachment:fixed;
 }
 li.L4 {
@@ -316,17 +315,6 @@ hr{
 .pagination > li > span {
 	background-color:transparent;
 }
-#bbg{
-		position:fixed;
-		top:0;
-		left:0;
-		width:100%;
-		height:100%;
-		overflow:hidden;
-		padding:0;
-		margin:0;
-	        z-index:-6;
-}
 
 @media (max-width: 991px) {
   .page-container {
@@ -334,10 +322,6 @@ hr{
   }
   body {
     margin: 0 auto;
-	background: url("{{ site.url }}/static/img/800pxbg.jpg") repeat fixed;
-  }
-  #bbg{
-	display:none;
   }
   .page-content-post {
 	position: relative;
