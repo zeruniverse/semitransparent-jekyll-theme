@@ -45,7 +45,17 @@
      </div>
      <script src="{{ site.url }}/static/js/bootstrap.js" type="text/javascript"></script>
      <script src="{{ site.url }}/static/js/bubbly-bg.js" type="text/javascript"></script>
-     <script>bubbly({blur: 10, colorStart: "#466979", colorStop: "#a0bbca"});</script>
+     <script>
+        var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        var min_size = Math.min(w, h);
+        bubbly({
+            bubbleFunc: () => `hsla(0, 0%, 100%, ${Math.random() * 0.03})`,
+            bubbles: 30,
+            blur: 10,
+            colorStart: "#466979",
+            colorStop: "#a0bbca",
+            radiusFunc: () =>  min_size * 0.05 + 0.18 * Math.random() * min_size});
+    </script>
 </body>
 </html>
-
