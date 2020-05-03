@@ -9,7 +9,7 @@ semitransparent-jekyll-theme
 
 ## Screenshot
 
-![capture](https://cloud.githubusercontent.com/assets/4648756/22578375/2f09c1fc-e97d-11e6-8910-336cf6c4f7ed.PNG)
+![capture](https://user-images.githubusercontent.com/4648756/80895140-6672bd00-8c96-11ea-8bec-d017f5078b02.png)
 
 ## Features
 
